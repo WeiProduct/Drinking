@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康喝水提醒</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>健康喝水</h1>
+            <p class="subtitle">保持水分，保持健康</p>
+        </header>
+
+        <div class="water-tracker">
+            <div class="water-display">
+                <div class="water-bottle">
+                    <div class="water-level" id="waterLevel"></div>
+                    <div class="bottle-cap"></div>
+                </div>
+                <div class="water-info">
+                    <h2 id="waterAmount">0 ml</h2>
+                    <p>今日饮水量</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="progressBar"></div>
+                    </div>
+                    <p class="goal-text">目标：<span id="goalAmount">2000</span> ml</p>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3>快速添加</h3>
+                <div class="quick-add-buttons">
+                    <button class="add-water-btn" data-amount="200">200ml</button>
+                    <button class="add-water-btn" data-amount="250">250ml</button>
+                    <button class="add-water-btn" data-amount="500">500ml</button>
+                    <button class="add-water-btn" data-amount="1000">1000ml</button>
+                </div>
+                
+                <div class="custom-input">
+                    <input type="number" id="customAmount" placeholder="自定义水量 (ml)" min="0" max="1000">
+                    <button id="addCustom">添加</button>
+                </div>
+            </div>
+
+            <div class="reminder-section">
+                <h3>喝水提醒</h3>
+                <div class="reminder-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="reminderToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>开启提醒</span>
+                </div>
+                <div class="reminder-interval">
+                    <label>提醒间隔：</label>
+                    <select id="intervalSelect">
+                        <option value="30">30分钟</option>
+                        <option value="60" selected>1小时</option>
+                        <option value="90">1.5小时</option>
+                        <option value="120">2小时</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3>今日统计</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💧</div>
+                        <div class="stat-value" id="drinkCount">0</div>
+                        <div class="stat-label">饮水次数</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏰</div>
+                        <div class="stat-value" id="lastDrink">--:--</div>
+                        <div class="stat-label">上次饮水</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value" id="avgIntake">0</div>
+                        <div class="stat-label">平均每次(ml)</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="resetDay">重置今日数据</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span class="notification-icon">💧</span>
+            <span class="notification-text">该喝水啦！</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
