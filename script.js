@@ -46,6 +46,7 @@ class WaterTracker {
         // Reminder toggle
         document.getElementById('reminderToggle').addEventListener('change', (e) => {
             if (e.target.checked) {
+                this.requestNotificationPermission();
                 this.startReminder();
             } else {
                 this.stopReminder();
@@ -186,7 +187,13 @@ class WaterTracker {
     loadData() {
         const savedData = localStorage.getItem('waterTrackerData');
         if (savedData) {
-            const data = JSON.parse(savedData);
+            let data;
+            try {
+                data = JSON.parse(savedData);
+            } catch {
+                localStorage.removeItem('waterTrackerData');
+                return;
+            }
             
             // Check if it's a new day
             if (data.date === new Date().toDateString()) {
@@ -234,8 +241,6 @@ class WaterTracker {
     }
 }
 
-// Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
-    const tracker = new WaterTracker();
-    tracker.requestNotificationPermission();
+    new WaterTracker();
 });
