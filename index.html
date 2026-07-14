@@ -1,140 +1,373 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>健康喝水提醒</title>
-    <meta name="description" content="健康喝水是一款轻量的饮水追踪与提醒工具，帮助你记录每日饮水量、饮水次数和提醒间隔。">
+    <meta name="theme-color" content="#4A90E2" id="themeColorMeta">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#4A90E2">
-    <link rel="canonical" href="https://weiproduct.github.io/Drinking/">
+    <title>健康喝水 - 会思考的 AI 喝水助手 | AI Drink Water</title>
+    <meta name="description" content="健康喝水（AI Drink Water）是一款 iOS 智能饮水助手：AI 根据你的体重、活动量和天气算出专属每日目标，智能提醒、快速记录、进度统计，数据全本地存储。">
+    <meta property="og:title" content="健康喝水 | AI Drink Water">
+    <meta property="og:description" content="会思考的喝水助手——AI 定制每日目标、智能提醒、进度统计，数据全本地存储。">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="WeiProduct">
-    <meta property="og:title" content="健康喝水提醒">
-    <meta property="og:description" content="Track daily water intake, add custom amounts, and set hydration reminders in a simple privacy-friendly tool.">
     <meta property="og:url" content="https://weiproduct.github.io/Drinking/">
+    <meta property="og:site_name" content="WeiProduct">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="健康喝水提醒">
-    <meta name="twitter:description" content="A lightweight hydration tracker and reminder tool by WeiProduct.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="twitter:title" content="健康喝水 | AI Drink Water">
+    <meta name="twitter:description" content="Hydration that thinks for you — AI-personalized daily goal, smart reminders, and progress stats. Private by design.">
+    <link rel="canonical" href="https://weiproduct.github.io/Drinking/">
+    <link rel="alternate" hreflang="zh-CN" href="https://weiproduct.github.io/Drinking/">
+    <link rel="alternate" hreflang="en" href="https://weiproduct.github.io/Drinking/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234A90E2'/%3E%3Cstop offset='1' stop-color='%2364B5F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cpath d='M50 18 C50 18 73 47 73 63 a23 23 0 0 1 -46 0 C27 47 50 18 50 18 Z' fill='white'/%3E%3Cpath d='M38 62 a12 12 0 0 0 7 13' fill='none' stroke='%23BBDEFB' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%234A90E2'/%3E%3Cstop offset='1' stop-color='%2364B5F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Cpath d='M50 18 C50 18 73 47 73 63 a23 23 0 0 1 -46 0 C27 47 50 18 50 18 Z' fill='white'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "健康喝水提醒",
-        "alternateName": "AI Drink Water",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "iOS",
-        "description": "A lightweight hydration tracker for daily water intake, quick add actions, custom amounts, statistics, and reminder intervals.",
-        "url": "https://weiproduct.github.io/Drinking/",
-        "downloadUrl": "https://apps.apple.com/app/id6749274211",
-        "creator": {
-            "@type": "Organization",
-            "name": "WeiProduct",
-            "url": "https://weiproduct.com/"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "健康喝水",
+      "alternateName": "AI Drink Water",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "iOS",
+      "url": "https://weiproduct.github.io/Drinking/",
+      "downloadUrl": "https://apps.apple.com/app/id6749274211",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "WeiProduct", "url": "https://weiproduct.com/" },
+      "description": "健康喝水（AI Drink Water）是一款 iOS 智能饮水助手，AI 根据你的体重、活动量和天气计算个性化每日目标，提供智能提醒、快速记录与进度统计，数据全本地存储。"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "AI 目标是怎么算出来的？", "acceptedAnswer": { "@type": "Answer", "text": "AI 会结合你输入的体重、活动量和所在气候，算出比统一 2000ml 更贴合你的每日饮水目标，并随你的记录动态调整。" } },
+        { "@type": "Question", "name": "喝水数据会上传云端吗？", "acceptedAnswer": { "@type": "Answer", "text": "不会。所有数据都保存在你的设备本地，我们不上传、不收集、不追踪任何饮水信息。" } },
+        { "@type": "Question", "name": "提醒可以自定义吗？", "acceptedAnswer": { "@type": "Answer", "text": "可以。你能一键开启或关闭提醒，并选择 30 分钟到 2 小时的间隔，AI 也会结合当天进度在恰当的时刻提醒你。" } },
+        { "@type": "Question", "name": "需要联网才能使用吗？", "acceptedAnswer": { "@type": "Answer", "text": "核心的记录、目标与提醒完全离线可用，无需登录账号，卸载即彻底清除全部数据。" } },
+        { "@type": "Question", "name": "支持哪些语言和设备？", "acceptedAnswer": { "@type": "Answer", "text": "支持简体中文与英文双语界面，适用于 iPhone。" } }
+      ]
     }
     </script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>健康喝水</h1>
-            <p class="subtitle">保持水分，保持健康</p>
-            <p class="privacy-note">数据仅保存在当前浏览器本地。</p>
-            <div class="app-store-cta">
-                <a href="https://apps.apple.com/app/id6749274211" target="_blank" rel="noopener noreferrer">App Store 下载</a>
-            </div>
-        </header>
+    <a class="skip-link" href="#main" data-i18n="skip">跳到主要内容</a>
 
-        <div class="water-tracker">
-            <div class="water-display">
-                <div class="water-bottle">
-                    <div class="water-level" id="waterLevel"></div>
-                    <div class="bottle-cap"></div>
-                </div>
-                <div class="water-info">
-                    <h2 id="waterAmount">0 ml</h2>
-                    <p>今日饮水量</p>
-                    <div class="progress-bar">
-                        <div class="progress" id="progressBar"></div>
-                    </div>
-                    <p class="goal-text">目标：<span id="goalAmount">2000</span> ml</p>
-                </div>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a class="nav-brand" href="#" aria-label="健康喝水 AI Drink Water">
+                <span class="brand-icon" aria-hidden="true">
+                    <svg viewBox="0 0 100 100" width="34" height="34"><defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A90E2"/><stop offset="1" stop-color="#64B5F6"/></linearGradient></defs><rect width="100" height="100" rx="24" fill="url(#bg)"/><path d="M50 18 C50 18 73 47 73 63 a23 23 0 0 1 -46 0 C27 47 50 18 50 18 Z" fill="#fff"/><path d="M38 62 a12 12 0 0 0 7 13" fill="none" stroke="#BBDEFB" stroke-width="4" stroke-linecap="round"/></svg>
+                </span>
+                <span class="brand-name" data-i18n="brandName">健康喝水</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#how" class="nav-link" data-i18n="navHow">使用流程</a>
+                <a href="#features" class="nav-link" data-i18n="navFeatures">功能特点</a>
+                <a href="#screenshots" class="nav-link" data-i18n="navScreenshots">应用截图</a>
+                <a href="#faq" class="nav-link" data-i18n="navFaq">常见问题</a>
+                <button class="icon-btn" type="button" id="themeToggle" aria-label="切换深色模式">
+                    <svg class="i-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                    <svg class="i-moon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+                </button>
+                <button class="lang-switch" type="button" id="langSwitch" aria-label="Switch language">EN</button>
+                <a href="https://apps.apple.com/app/id6749274211" class="btn btn-primary btn-sm nav-cta" target="_blank" rel="noopener noreferrer" data-i18n="navGet">获取 App</a>
             </div>
-
-            <div class="control-panel">
-                <h3>快速添加</h3>
-                <div class="quick-add-buttons">
-                    <button class="add-water-btn" data-amount="200">200ml</button>
-                    <button class="add-water-btn" data-amount="250">250ml</button>
-                    <button class="add-water-btn" data-amount="500">500ml</button>
-                    <button class="add-water-btn" data-amount="1000">1000ml</button>
-                </div>
-                
-                <div class="custom-input">
-                    <input type="number" id="customAmount" placeholder="自定义水量 (ml)" min="0" max="1000">
-                    <button id="addCustom">添加</button>
-                </div>
-            </div>
-
-            <div class="reminder-section">
-                <h3>喝水提醒</h3>
-                <div class="reminder-toggle">
-                    <label class="switch">
-                        <input type="checkbox" id="reminderToggle">
-                        <span class="slider"></span>
-                    </label>
-                    <span>开启提醒</span>
-                </div>
-                <div class="reminder-interval">
-                    <label>提醒间隔：</label>
-                    <select id="intervalSelect">
-                        <option value="30">30分钟</option>
-                        <option value="60" selected>1小时</option>
-                        <option value="90">1.5小时</option>
-                        <option value="120">2小时</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="stats-section">
-                <h3>今日统计</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">💧</div>
-                        <div class="stat-value" id="drinkCount">0</div>
-                        <div class="stat-label">饮水次数</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">⏰</div>
-                        <div class="stat-value" id="lastDrink">--:--</div>
-                        <div class="stat-label">上次饮水</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon">📊</div>
-                        <div class="stat-value" id="avgIntake">0</div>
-                        <div class="stat-label">平均每次(ml)</div>
-                    </div>
-                </div>
-            </div>
-
-            <button class="reset-btn" id="resetDay">重置今日数据</button>
         </div>
+    </nav>
+
+    <main id="main">
+    <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="eyebrow" data-i18n="heroEyebrow">✦ AI 驱动的饮水助手</span>
+                <h1 class="hero-title" data-i18n="heroTitle">会思考的喝水助手</h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">AI 根据你的体重、活动量和天气，算出真正适合你的每日目标，并在恰当的时刻温柔提醒。</p>
+                <div class="hero-buttons">
+                    <a href="https://apps.apple.com/app/id6749274211" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                        <svg class="apple-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        <span class="download-label" data-i18n="downloadBtn">App Store 下载</span>
+                    </a>
+                    <a href="#how" class="btn btn-secondary" data-i18n="learnMore">了解更多</a>
+                </div>
+                <ul class="hero-trust">
+                    <li data-i18n="trust1">🔒 数据全本地</li>
+                    <li data-i18n="trust2">🔔 智能提醒</li>
+                    <li data-i18n="trust3">🌏 中英双语</li>
+                </ul>
+            </div>
+            <div class="hero-visual">
+                <div class="device" role="img" aria-label="AI 定制的每日饮水目标与进度">
+                    <div class="device-notch" aria-hidden="true"></div>
+                    <div class="hydro">
+                        <div class="hydro-head">
+                            <span class="hydro-title" data-i18n="hydroToday">今天</span>
+                            <span class="hydro-ai"><span class="dot"></span><span data-i18n="hydroAi">AI 已定制</span></span>
+                        </div>
+                        <div class="ring-wrap">
+                            <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A90E2"/><stop offset="1" stop-color="#64B5F6"/></linearGradient></defs><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-prog" cx="60" cy="60" r="52"/></svg>
+                            <div class="ring-center">
+                                <span class="amt">1450<small style="font-size:13px;color:var(--text-secondary);font-weight:700"> ml</small></span>
+                                <span class="goal">/ 2100 ml</span>
+                                <span class="pct">69%</span>
+                            </div>
+                        </div>
+                        <div class="hydro-goal" data-i18n="hydroGoal">今日目标 2100ml · 按体重与天气定制</div>
+                        <div class="hydro-chips">
+                            <span>+200</span><span>+300</span><span>+500</span>
+                        </div>
+                        <div class="hydro-tip">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3z"/></svg>
+                            <span data-i18n="hydroTip">AI 建议：现在补 300ml，保持节奏</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-chip chip-a" data-i18n="chipA">💧 已喝 1450ml</div>
+                <div class="hero-chip chip-b" data-i18n="chipB">🔔 下次 14:30</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="proof" aria-label="trust">
+        <div class="container proof-row">
+            <div class="proof-rating">
+                <div class="stars" aria-hidden="true">★★★★★</div>
+                <div class="proof-sub"><strong>App Store</strong><span data-i18n="proofRating">健康 · 生活方式</span></div>
+            </div>
+            <div class="proof-stats">
+                <div class="stat"><strong>AI</strong><span data-i18n="stat1">个性化目标</span></div>
+                <div class="stat"><strong>100%</strong><span data-i18n="stat2">本地存储</span></div>
+                <div class="stat"><strong>EN / 中文</strong><span data-i18n="stat3">双语界面</span></div>
+                <div class="stat"><strong>0</strong><span data-i18n="stat4">广告 · 追踪</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="how">
+        <div class="container">
+            <h2 class="section-title" data-i18n="howTitle">三步喝对每一天</h2>
+            <p class="section-sub" data-i18n="howSub">告诉它你的情况，剩下的交给 AI。</p>
+            <div class="steps">
+                <div class="step reveal">
+                    <div class="step-badge">1</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></div>
+                    <h3 data-i18n="step1Title">告诉它你的情况</h3>
+                    <p data-i18n="step1Desc">输入体重、活动量和所在气候，一次设置，之后无需再操心。</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-badge">2</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3z"/><path d="M9.4 13l1.9 1.9 3.3-3.7"/></svg></div>
+                    <h3 data-i18n="step2Title">AI 算出你的专属目标</h3>
+                    <p data-i18n="step2Desc">不是千篇一律的 2000ml，而是为你量身定制、还会随天气变化的每日饮水量。</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-badge">3</div>
+                    <div class="step-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+                    <h3 data-i18n="step3Title">智能提醒，轻松达标</h3>
+                    <p data-i18n="step3Desc">在恰当时刻提醒你补水，随手一点即可记录，看着进度环一点点涨满。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="featuresTitle">核心功能</h2>
+            <p class="section-sub" data-i18n="featuresSub">为轻松、稳定的补水习惯而设计。</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 10.5a6 6 0 0 1-12 0C6 9.5 12 3 12 3z"/><path d="M9.4 13l1.9 1.9 3.3-3.7"/></svg></div>
+                    <h3 data-i18n="feature1Title">AI 自适应目标</h3>
+                    <p data-i18n="feature1Desc">根据体重、活动量和气候计算你的专属每日目标，并随进度和天气动态调整。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div>
+                    <h3 data-i18n="feature2Title">智能喝水提醒</h3>
+                    <p data-i18n="feature2Desc">可开关的定时提醒，间隔 30 分钟到 2 小时随心选，AI 结合当天进度温柔提示。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 8.5s2.6 2.8 2.6 4.6a2.6 2.6 0 0 1-5.2 0C9.4 11.3 12 8.5 12 8.5z"/></svg></div>
+                    <h3 data-i18n="feature3Title">进度环与统计</h3>
+                    <p data-i18n="feature3Desc">直观的进度环，配合饮水次数、上次时间与平均每次水量，一眼看清今日状态。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12l-1 15a2 2 0 0 1-2 1.8H9A2 2 0 0 1 7 19L6 4z"/><path d="M12 9v5M9.5 11.5h5"/></svg></div>
+                    <h3 data-i18n="feature4Title">快速记录</h3>
+                    <p data-i18n="feature4Desc">200 / 250 / 500 / 1000ml 一键快速添加，也支持输入自定义水量，记录只需一秒。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></div>
+                    <h3 data-i18n="feature5Title">中英双语</h3>
+                    <p data-i18n="feature5Desc">完整支持简体中文与英文界面，随时一键切换，适合不同使用习惯。</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l7 3v5c0 4.4-3 8.3-7 9.5-4-1.2-7-5.1-7-9.5v-5z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h3 data-i18n="feature6Title">隐私优先</h3>
+                    <p data-i18n="feature6Desc">全部数据本地存储，无需账号、无需联网，你的饮水记录只属于你自己。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="screenshots">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screenshotsTitle">应用截图</h2>
+            <p class="section-sub" data-i18n="screenshotsSub">左右滑动，点击可放大查看。</p>
+            <div class="gallery">
+                <button class="gal-arrow prev" type="button" aria-label="上一张" id="galPrev">‹</button>
+                <div class="gal-track" id="galTrack">
+                    <!-- Screen 1: Today ring -->
+                    <figure class="shot reveal">
+                        <div class="phone"><div class="screen">
+                            <div class="sc-bar"><span>9:41</span><span class="batt" aria-hidden="true"></span></div>
+                            <div class="sc-head"><span class="sc-title" data-i18n="scToday">今天</span><span class="sc-ai" data-i18n="scAi">AI 定制</span></div>
+                            <div class="sc-ring">
+                                <svg viewBox="0 0 120 120" aria-hidden="true"><defs><linearGradient id="ringG2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A90E2"/><stop offset="1" stop-color="#64B5F6"/></linearGradient></defs><circle class="rt" cx="60" cy="60" r="52"/><circle class="rp" cx="60" cy="60" r="52"/></svg>
+                                <div class="rc"><b>1450<span style="font-size:12px;color:var(--text-secondary)"> ml</span></b><small>/ 2100 ml · 69%</small></div>
+                            </div>
+                            <div class="sc-goalnote" data-i18n="scGoalNote">目标 2100ml · 为你定制</div>
+                            <div class="sc-stats">
+                                <div><b>6</b><span data-i18n="scCount">次数</span></div>
+                                <div><b>13:20</b><span data-i18n="scLast">上次</span></div>
+                                <div><b>240</b><span data-i18n="scAvg">平均 ml</span></div>
+                            </div>
+                        </div></div>
+                        <figcaption data-i18n="shot1">AI 定制目标与进度</figcaption>
+                    </figure>
+                    <!-- Screen 2: Quick log -->
+                    <figure class="shot reveal">
+                        <div class="phone"><div class="screen">
+                            <div class="sc-bar"><span>9:41</span><span class="batt" aria-hidden="true"></span></div>
+                            <div class="sc-head"><span class="sc-title" data-i18n="scLogTitle">记录饮水</span></div>
+                            <div class="cup-grid">
+                                <div class="cup"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 5.4 5 8.8a5 5 0 0 1-10 0C7 8.4 12 3 12 3z"/></svg>200ml</div>
+                                <div class="cup hl"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 5.4 5 8.8a5 5 0 0 1-10 0C7 8.4 12 3 12 3z"/></svg>250ml</div>
+                                <div class="cup"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 5.4 5 8.8a5 5 0 0 1-10 0C7 8.4 12 3 12 3z"/></svg>500ml</div>
+                                <div class="cup"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s5 5.4 5 8.8a5 5 0 0 1-10 0C7 8.4 12 3 12 3z"/></svg>1000ml</div>
+                            </div>
+                            <div class="custom-row"><span class="inp" data-i18n="scCustom">自定义水量…</span><span class="go" data-i18n="scAdd">添加</span></div>
+                            <div class="recent">
+                                <div class="rlab" data-i18n="scRecent">今日记录</div>
+                                <div class="rrow"><span class="t">13:20</span><span class="v">+250 ml</span></div>
+                                <div class="rrow"><span class="t">11:05</span><span class="v">+500 ml</span></div>
+                                <div class="rrow"><span class="t">09:30</span><span class="v">+300 ml</span></div>
+                            </div>
+                        </div></div>
+                        <figcaption data-i18n="shot2">一键快速记录饮水</figcaption>
+                    </figure>
+                    <!-- Screen 3: Reminders -->
+                    <figure class="shot reveal">
+                        <div class="phone"><div class="screen">
+                            <div class="sc-bar"><span>9:41</span><span class="batt" aria-hidden="true"></span></div>
+                            <div class="sc-head"><span class="sc-title" data-i18n="scRemTitle">喝水提醒</span></div>
+                            <div class="rem-card"><span data-i18n="scRemOn">开启提醒</span><span class="sw" aria-hidden="true"></span></div>
+                            <div class="rem-lab" data-i18n="scRemInt">提醒间隔</div>
+                            <div class="chip-row">
+                                <span data-i18n="scI1">30 分钟</span><span class="on" data-i18n="scI2">1 小时</span><span data-i18n="scI3">1.5 小时</span><span data-i18n="scI4">2 小时</span>
+                            </div>
+                            <div class="rem-next"><b>14:30</b><span data-i18n="scNextNote">下次提醒 · 已喝 1450ml</span></div>
+                            <div class="rem-up">
+                                <div class="rrow"><span class="t">14:30</span><span class="v" data-i18n="scGlass">一杯水 250ml</span></div>
+                                <div class="rrow"><span class="t">15:30</span><span class="v" data-i18n="scGlass2">一杯水 250ml</span></div>
+                            </div>
+                        </div></div>
+                        <figcaption data-i18n="shot3">可自定义的智能提醒</figcaption>
+                    </figure>
+                    <!-- Screen 4: Stats -->
+                    <figure class="shot reveal">
+                        <div class="phone"><div class="screen">
+                            <div class="sc-bar"><span>9:41</span><span class="batt" aria-hidden="true"></span></div>
+                            <div class="sc-head"><span class="sc-title" data-i18n="scStatsTitle">本周统计</span><span class="sc-tag" data-i18n="scWeek">近 7 天</span></div>
+                            <div class="bars">
+                                <div class="goal-line" aria-hidden="true"></div>
+                                <div class="bar"><i style="height:60%"></i><span data-i18n="scD1">一</span></div>
+                                <div class="bar"><i style="height:80%"></i><span data-i18n="scD2">二</span></div>
+                                <div class="bar miss"><i style="height:45%"></i><span data-i18n="scD3">三</span></div>
+                                <div class="bar"><i style="height:92%"></i><span data-i18n="scD4">四</span></div>
+                                <div class="bar"><i style="height:78%"></i><span data-i18n="scD5">五</span></div>
+                                <div class="bar"><i style="height:100%"></i><span data-i18n="scD6">六</span></div>
+                                <div class="bar"><i style="height:69%"></i><span data-i18n="scD7">日</span></div>
+                            </div>
+                            <div class="stat-tiles">
+                                <div><b>5/7</b><span data-i18n="scGoalDays">达标天数</span></div>
+                                <div><b>1980<span style="font-size:11px"> ml</span></b><span data-i18n="scDaily">日均饮水</span></div>
+                            </div>
+                        </div></div>
+                        <figcaption data-i18n="shot4">每周趋势一目了然</figcaption>
+                    </figure>
+                </div>
+                <button class="gal-arrow next" type="button" aria-label="下一张" id="galNext">›</button>
+            </div>
+            <div class="gal-dots" id="galDots" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <section class="privacy">
+        <div class="container privacy-card">
+            <div class="privacy-lead">
+                <h2 data-i18n="privacyTitle">你的数据，只属于你</h2>
+                <p data-i18n="privacyDesc">没有账号，没有云端，没有追踪。所有饮水记录都保存在设备本地，卸载即彻底清除。</p>
+            </div>
+            <ul class="privacy-points">
+                <li><span aria-hidden="true">📱</span><span data-i18n="pp1">数据本地存储</span></li>
+                <li><span aria-hidden="true">📶</span><span data-i18n="pp2">离线即可使用</span></li>
+                <li><span aria-hidden="true">🚫</span><span data-i18n="pp3">无任何追踪</span></li>
+                <li><span aria-hidden="true">🎯</span><span data-i18n="pp4">无广告干扰</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faqTitle">常见问题</h2>
+            <div class="faq-list">
+                <details class="faq-item reveal"><summary data-i18n="q1">AI 目标是怎么算出来的？</summary><p data-i18n="a1">AI 会结合你输入的体重、活动量和所在气候，算出比统一 2000ml 更贴合你的每日饮水目标，并随你的记录动态调整。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q2">喝水数据会上传云端吗？</summary><p data-i18n="a2">不会。所有数据都保存在你的设备本地，我们不上传、不收集、不追踪任何饮水信息。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q3">提醒可以自定义吗？</summary><p data-i18n="a3">可以。你能一键开启或关闭提醒，并选择 30 分钟到 2 小时的间隔，AI 也会结合当天进度在恰当的时刻提醒你。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q4">需要联网才能使用吗？</summary><p data-i18n="a4">核心的记录、目标与提醒完全离线可用，无需登录账号，卸载即彻底清除全部数据。</p></details>
+                <details class="faq-item reveal"><summary data-i18n="q5">支持哪些语言和设备？</summary><p data-i18n="a5">支持简体中文与英文双语界面，适用于 iPhone。</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 data-i18n="downloadTitle">立即下载 健康喝水</h2>
+                <p data-i18n="downloadSubtitle">让 AI 帮你养成稳定的补水习惯。</p>
+                <div class="download-buttons">
+                    <a href="https://apps.apple.com/app/id6749274211" class="app-store-badge" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+                        <svg viewBox="0 0 120 40" width="180" height="60" role="img" aria-label="Download on the App Store"><rect width="120" height="40" rx="8" fill="#000"/><rect x="0.6" y="0.6" width="118.8" height="38.8" rx="7.4" fill="none" stroke="#A6A6A6" stroke-width="1" opacity="0.5"/><g transform="translate(10.5,8.4) scale(0.82)"><path fill="#fff" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></g><text x="41" y="16.5" fill="#fff" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="6.5">Download on the</text><text x="41" y="30" fill="#fff" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="15" font-weight="600">App Store</text></svg>
+                    </a>
+                </div>
+                <p class="download-note" data-i18n="downloadNote">适用于 iPhone · 免费下载</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="currentYear">2026</span> <span data-i18n="footerRights">健康喝水 (AI Drink Water). 保留所有权利。</span></p>
+                <p data-i18n="footerMadeBy">Built by WeiProduct</p>
+                <p>Contact: <a href="mailto:1597498880weiproduct@gmail.com">1597498880weiproduct@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-cta" id="stickyCta">
+        <div class="sticky-app">
+            <span class="brand-icon sm" aria-hidden="true"><svg viewBox="0 0 100 100" width="30" height="30"><rect width="100" height="100" rx="24" fill="url(#bg)"/><path d="M50 18 C50 18 73 47 73 63 a23 23 0 0 1 -46 0 C27 47 50 18 50 18 Z" fill="#fff"/><path d="M38 62 a12 12 0 0 0 7 13" fill="none" stroke="#BBDEFB" stroke-width="4" stroke-linecap="round"/></svg></span>
+            <div class="sticky-txt"><strong data-i18n="brandName">健康喝水</strong><span data-i18n="stickySub">AI 个性化饮水 · 免费</span></div>
+        </div>
+        <a href="https://apps.apple.com/app/id6749274211" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer" data-i18n="stickyGet">获取</a>
     </div>
 
-    <div class="notification" id="notification">
-        <div class="notification-content">
-            <span class="notification-icon">💧</span>
-            <span class="notification-text">该喝水啦！</span>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
