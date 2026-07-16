@@ -47,7 +47,31 @@ const I18N = {
     q5: '支持哪些语言和设备？', a5: '支持简体中文与英文双语界面，适用于 iPhone。',
     downloadTitle: '立即下载 健康喝水', downloadSubtitle: '让 AI 帮你养成稳定的补水习惯。', downloadNote: '适用于 iPhone · 免费下载',
     footerRights: '健康喝水 (AI Drink Water). 保留所有权利。', footerMadeBy: 'Built by WeiProduct',
-    stickySub: 'AI 个性化饮水 · 免费', stickyGet: '获取'
+    stickySub: 'AI 个性化饮水 · 免费', stickyGet: '获取',
+    eyeHow: '使用流程', eyeFeatures: '功能特点', eyeShots: '界面预览', eyePrivacy: '隐私承诺', eyeFaq: '答疑解惑',
+    eyeTry: '亲手体验', eyeWho: '适合谁', eyeCompare: '理性对比',
+    tryTitle: '试一试：目标实时变化', trySub: '拖动滑块、点选活动量与气候，看 AI 逻辑如何给出示例目标。',
+    tryWeight: '体重', tryActivity: '活动量', tryClimate: '气候',
+    tryActSed: '久坐', tryActMod: '适中', tryActHigh: '高强度',
+    tryCliCool: '凉爽', tryCliMild: '温和', tryCliHot: '炎热',
+    tryResultPre: '示例每日目标',
+    tryNote: '演示示例——App 会结合实时天气与你的记录进一步校准，不构成医疗建议。',
+    whoTitle: '为你的一天而设计', whoSub: '不同的日常，同样恰到好处的补水。',
+    who1Name: '办公桌久坐族', who1Pain: '会议排满一天，喝水总被挤掉。', who1Fix: '每小时的提醒不会缺席。',
+    who2Name: '健身人群', who2Pain: '出汗多，需求远不止 2000ml。', who2Fix: '高活动量，目标自动上调。',
+    who3Name: '炎热气候 · 户外', who3Pain: '天气越热，缺水来得越快。', who3Fix: '天气越热，目标越高。',
+    who4Name: '总是忘喝水的人', who4Pain: '一忙起来，整个下午滴水未进。', who4Fix: '一键 250ml，记录零负担。',
+    cmpTitle: '为什么 AI 目标胜过固定目标', cmpSub: '定性对比，不夸大——看看差别在哪里。',
+    cmpColItem: '对比项', cmpCol1: '凭感觉 · 备忘录', cmpCol2: '固定目标闹钟', cmpCol3: '健康喝水',
+    cmpR1: '每日目标', cmpC11: '没有目标，全凭感觉', cmpC12: '人人一样的 2000ml', cmpC13: '个性化并动态调整',
+    cmpR2: '天气感知', cmpC21: '无', cmpC22: '无', cmpC23: '目标随天气变化',
+    cmpR3: '提醒时机', cmpC31: '想起来才喝', cmpC32: '一成不变的闹铃', cmpC33: 'AI 在恰当时刻提醒',
+    cmpR4: '记录成本', cmpC41: '手动记备忘，容易漏', cmpC42: '输入繁琐', cmpC43: '一键 200–1000ml',
+    cmpR5: '隐私', cmpC51: '取决于所用工具', cmpC52: '常需云端同步', cmpC53: '100% 本地存储',
+    cmpR6: '语言', cmpC61: '不适用', cmpC62: '通常单一语言', cmpC63: '中英一键切换',
+    mq1: 'AI 自适应目标', mq2: '智能提醒', mq3: '一键记录 200/250/500/1000ml', mq4: '100% 本地存储', mq5: '中英双语', mq6: '天气感知',
+    footTagline: '会思考的喝水助手', footProduct: '产品', footSupport: '支持', footPrefs: '偏好',
+    footTry: '试一试 AI 目标', footContact: '联系我们', footAppStore: 'App Store'
   },
   'en': {
     skip: 'Skip to content',
@@ -96,7 +120,31 @@ const I18N = {
     q5: 'Which languages and devices are supported?', a5: 'Simplified Chinese and English interfaces, for iPhone.',
     downloadTitle: 'Download AI Drink Water', downloadSubtitle: 'Let AI help you build a steady hydration habit.', downloadNote: 'For iPhone · Free download',
     footerRights: 'AI Drink Water. All rights reserved.', footerMadeBy: 'Built by WeiProduct',
-    stickySub: 'AI-personalized hydration · Free', stickyGet: 'Get'
+    stickySub: 'AI-personalized hydration · Free', stickyGet: 'Get',
+    eyeHow: 'How it works', eyeFeatures: 'Features', eyeShots: 'Screenshots', eyePrivacy: 'Privacy', eyeFaq: 'FAQ',
+    eyeTry: 'Try it now', eyeWho: "Who it's for", eyeCompare: 'The difference',
+    tryTitle: 'See your goal change in real time', trySub: 'Drag the slider, tap your activity and climate — watch the AI logic produce an illustrative goal.',
+    tryWeight: 'Weight', tryActivity: 'Activity', tryClimate: 'Climate',
+    tryActSed: 'Sedentary', tryActMod: 'Moderate', tryActHigh: 'Active',
+    tryCliCool: 'Cool', tryCliMild: 'Mild', tryCliHot: 'Hot',
+    tryResultPre: 'Your illustrative daily goal',
+    tryNote: 'Illustrative demo — the app refines this with live weather and your logs. Not medical advice.',
+    whoTitle: 'Made for your day', whoSub: 'Different routines, the same right amount of water.',
+    who1Name: 'Desk-bound worker', who1Pain: 'Meetings eat your day — water gets squeezed out.', who1Fix: "The hourly nudge doesn't miss.",
+    who2Name: 'Gym-goer', who2Pain: 'Sweat more — you need well beyond a flat 2000ml.', who2Fix: 'High activity raises your target automatically.',
+    who3Name: 'Hot climate & outdoor', who3Pain: 'The hotter it gets, the faster you dehydrate.', who3Fix: 'On hot days the goal climbs with the weather.',
+    who4Name: 'The forgetful', who4Pain: 'One busy stretch and the afternoon goes dry.', who4Fix: 'One-tap 250ml logging, zero friction.',
+    cmpTitle: 'Why an AI goal beats a fixed one', cmpSub: 'An honest, qualitative look at where the difference lies.',
+    cmpColItem: 'Compare', cmpCol1: 'Guessing / notes app', cmpCol2: 'Fixed-goal timer', cmpCol3: 'AI Drink Water',
+    cmpR1: 'Daily goal', cmpC11: 'None — pure guesswork', cmpC12: 'The same 2000ml for everyone', cmpC13: 'Personalized & adaptive',
+    cmpR2: 'Weather-aware', cmpC21: 'Not aware', cmpC22: 'Not aware', cmpC23: 'Goal shifts with the weather',
+    cmpR3: 'Reminder timing', cmpC31: 'Only when you remember', cmpC32: 'The same bell all day', cmpC33: 'AI picks the right moment',
+    cmpR4: 'Logging effort', cmpC41: 'Manual notes, easy to miss', cmpC42: 'Fiddly input', cmpC43: 'One tap: 200–1000ml',
+    cmpR5: 'Privacy', cmpC51: 'Depends on the tool', cmpC52: 'Often cloud-synced', cmpC53: '100% on-device',
+    cmpR6: 'Language', cmpC61: 'N/A', cmpC62: 'Usually one language', cmpC63: 'EN / 中文, one-tap switch',
+    mq1: 'AI adaptive goal', mq2: 'Smart reminders', mq3: 'Quick log 200/250/500/1000ml', mq4: '100% on-device', mq5: 'EN / 中文', mq6: 'Weather-aware',
+    footTagline: 'Hydration that thinks for you', footProduct: 'Product', footSupport: 'Support', footPrefs: 'Preferences',
+    footTry: 'Try the AI goal', footContact: 'Contact us', footAppStore: 'App Store'
   }
 };
 
@@ -110,8 +158,9 @@ function applyLang(lang) {
     if (t[k] !== undefined) el.textContent = t[k];
   });
   document.documentElement.lang = currentLang;
-  const ls = document.getElementById('langSwitch');
-  if (ls) ls.textContent = currentLang === 'zh-CN' ? 'EN' : '中文';
+  document.querySelectorAll('.js-lang-switch').forEach(b => {
+    b.textContent = currentLang === 'zh-CN' ? 'EN' : '中文';
+  });
   try { localStorage.setItem('lang', currentLang); } catch (e) {}
 }
 
@@ -208,17 +257,82 @@ function initReveal() {
   els.forEach((el, i) => { el.style.transitionDelay = (Math.min(i, 6) * 0.05) + 's'; io.observe(el); });
 }
 
-// ===== Nav + sticky =====
+// ===== Nav + sticky + scroll progress =====
 function initScroll() {
   const nav = document.getElementById('navbar');
   const sticky = document.getElementById('stickyCta');
+  const prog = document.getElementById('scrollProgress');
   const onScroll = () => {
     const y = window.scrollY;
     if (nav) nav.classList.toggle('scrolled', y > 20);
     if (sticky) sticky.classList.toggle('show', y > 620);
+    if (prog) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + '%';
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+// ===== Try the AI goal (illustrative calculator) =====
+function initTryGoal() {
+  const slider = document.getElementById('tryWeight');
+  const goalOut = document.getElementById('goalOut');
+  const weightOut = document.getElementById('weightOut');
+  const fill = document.getElementById('glassFill');
+  if (!slider || !goalOut || !weightOut) return;
+
+  const ACT = { sed: 0, mod: 250, high: 500 };
+  const CLI = { cool: 0, mild: 200, hot: 400 };
+  let act = 'mod', cli = 'mild';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let shown = 2550, raf;
+
+  const goal = () => Math.round((slider.value * 30 + ACT[act] + CLI[cli]) / 10) * 10;
+
+  function animateTo(target) {
+    if (reduced || !('requestAnimationFrame' in window)) {
+      shown = target;
+      goalOut.textContent = target.toLocaleString('en-US');
+      return;
+    }
+    cancelAnimationFrame(raf);
+    const from = shown, start = performance.now(), dur = 500;
+    const step = now => {
+      const p = Math.min(1, (now - start) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      shown = Math.round(from + (target - from) * e);
+      goalOut.textContent = shown.toLocaleString('en-US');
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+  }
+
+  function render() {
+    const g = goal();
+    weightOut.textContent = slider.value;
+    animateTo(g);
+    if (fill) {
+      // Fill fraction across the plausible range (40kg cool sedentary → 120kg hot active)
+      const frac = Math.max(0.08, Math.min(1, (g - 1200) / (4500 - 1200)));
+      const BOT = 142, TOP = 20;
+      const h = (BOT - TOP) * frac;
+      fill.style.y = (BOT - h) + 'px';
+      fill.style.height = h + 'px';
+    }
+  }
+
+  slider.addEventListener('input', render);
+  document.querySelectorAll('.try-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const group = chip.dataset.act ? 'act' : 'cli';
+      if (group === 'act') act = chip.dataset.act; else cli = chip.dataset.cli;
+      chip.parentElement.querySelectorAll('.try-chip').forEach(c => c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'));
+      render();
+    });
+  });
+  render();
 }
 
 // ===== Init =====
@@ -228,14 +342,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initReveal();
   initScroll();
+  initTryGoal();
 
   const yr = document.getElementById('currentYear');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  const ls = document.getElementById('langSwitch');
-  if (ls) ls.addEventListener('click', () => applyLang(currentLang === 'zh-CN' ? 'en' : 'zh-CN'));
-  const tt = document.getElementById('themeToggle');
-  if (tt) tt.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+  document.querySelectorAll('.js-lang-switch').forEach(b => {
+    b.addEventListener('click', () => applyLang(currentLang === 'zh-CN' ? 'en' : 'zh-CN'));
+  });
+  document.querySelectorAll('.js-theme-toggle').forEach(b => {
+    b.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+  });
 
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function (e) {
