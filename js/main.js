@@ -71,7 +71,18 @@ const I18N = {
     cmpR6: '语言', cmpC61: '不适用', cmpC62: '通常单一语言', cmpC63: '中英一键切换',
     mq1: 'AI 自适应目标', mq2: '智能提醒', mq3: '一键记录 200/250/500/1000ml', mq4: '100% 本地存储', mq5: '中英双语', mq6: '天气感知',
     footTagline: '会思考的喝水助手', footProduct: '产品', footSupport: '支持', footPrefs: '偏好',
-    footTry: '试一试 AI 目标', footContact: '联系我们', footAppStore: 'App Store'
+    footTry: '试一试 AI 目标', footContact: '联系我们', footAppStore: 'App Store',
+    /* AI-AVATAR */
+    aiTitle: 'AI分身 · 健康喝水助手',
+    aiGreeting: '你好！我是 健康喝水 的 AI分身 💧 关于 AI 每日目标、智能提醒、隐私保护或价格，都可以问我。',
+    aiPlaceholder: '输入你的问题…',
+    aiSend: '发送',
+    aiChip1: 'AI 目标是怎么算的？',
+    aiChip2: '我的数据安全吗？',
+    aiChip3: '提醒可以自定义吗？',
+    aiDisclaimer: 'AI 生成，仅供参考',
+    aiError: '抱歉，AI 助手暂时连不上，请稍后再试。(Sorry, the assistant is temporarily unreachable — please try again later.)'
+    /* /AI-AVATAR */
   },
   'en': {
     skip: 'Skip to content',
@@ -144,7 +155,18 @@ const I18N = {
     cmpR6: 'Language', cmpC61: 'N/A', cmpC62: 'Usually one language', cmpC63: 'EN / 中文, one-tap switch',
     mq1: 'AI adaptive goal', mq2: 'Smart reminders', mq3: 'Quick log 200/250/500/1000ml', mq4: '100% on-device', mq5: 'EN / 中文', mq6: 'Weather-aware',
     footTagline: 'Hydration that thinks for you', footProduct: 'Product', footSupport: 'Support', footPrefs: 'Preferences',
-    footTry: 'Try the AI goal', footContact: 'Contact us', footAppStore: 'App Store'
+    footTry: 'Try the AI goal', footContact: 'Contact us', footAppStore: 'App Store',
+    /* AI-AVATAR */
+    aiTitle: 'AI Avatar · AI Drink Water Assistant',
+    aiGreeting: 'Hi! I\'m the AI avatar for AI Drink Water 💧 Ask me about your AI daily goal, smart reminders, privacy, or pricing.',
+    aiPlaceholder: 'Type your question…',
+    aiSend: 'Send',
+    aiChip1: 'How is my AI goal calculated?',
+    aiChip2: 'Is my data private?',
+    aiChip3: 'Can I customize reminders?',
+    aiDisclaimer: 'AI-generated · for reference only',
+    aiError: 'Sorry, the assistant is temporarily unreachable — please try again later. （抱歉，AI 助手暂时连不上，请稍后再试。）'
+    /* /AI-AVATAR */
   }
 };
 
@@ -157,6 +179,12 @@ function applyLang(lang) {
     const k = el.getAttribute('data-i18n');
     if (t[k] !== undefined) el.textContent = t[k];
   });
+  /* AI-AVATAR: translate placeholder attributes */
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const k = el.getAttribute('data-i18n-ph');
+    if (t[k] !== undefined) el.setAttribute('placeholder', t[k]);
+  });
+  /* /AI-AVATAR */
   document.documentElement.lang = currentLang;
   document.querySelectorAll('.js-lang-switch').forEach(b => {
     b.textContent = currentLang === 'zh-CN' ? 'EN' : '中文';
@@ -364,3 +392,148 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+/* AI-AVATAR: floating "AI分身" assistant widget */
+(function () {
+  const AI_PROXY_URL = 'https://personal-portfolio-api-sandy.vercel.app/api/chat-proxy';
+  const AI_SYSTEM_PROMPT = [
+    'You are the "AI分身" (AI avatar) assistant on the promo website of AI Drink Water (健康喝水), an iOS hydration app by WeiProduct.',
+    '',
+    'App facts (the ONLY facts you may state):',
+    '- One-liner: hydration that thinks for you — AI computes a personal daily water goal from your body, activity level, and weather, then reminds you at just the right moments.',
+    '- Key features: AI adaptive daily goal (calculated from weight, activity level, and climate — not a flat 2000ml — and it adjusts with the weather and your progress); smart reminders (toggle on/off, intervals from 30 minutes to 2 hours, AI nudges based on how much you have drunk today); progress ring plus stats (drink count, last-drink time, average per drink, weekly trend charts); quick logging (one-tap 200 / 250 / 500 / 1000ml or a custom amount).',
+    '- Privacy: 100% on-device storage — no account, no cloud, no tracking, no ads; core logging, goals, and reminders work fully offline; uninstalling wipes all data.',
+    '- Platform: iPhone (iOS).',
+    '- Price: free.',
+    '- Languages: English and Simplified Chinese (中文).',
+    '- App Store link: https://apps.apple.com/app/id6749274211',
+    '',
+    'Style rules:',
+    '- ALWAYS reply in the same language as the user\'s most recent message: English question → English answer, 中文提问 → 中文回答. Do NOT default to Chinese just because the app has a Chinese name.',
+    '- Keep replies to 1-3 short sentences; be friendly and concrete.',
+    '- NEVER invent download counts, ratings, reviews, or features not listed above.',
+    '- Hydration guidance is illustrative, not medical advice — say so if the user asks for health advice.',
+    '- If asked about unrelated topics, politely steer the conversation back to AI Drink Water.',
+    '- When the user wants to download or try the app, point them to the App Store link.'
+  ].join('\n');
+  const AI_MAX_HISTORY = 12;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('aiToggle');
+    const panel = document.getElementById('aiPanel');
+    const closeBtn = document.getElementById('aiClose');
+    const msgs = document.getElementById('aiMsgs');
+    const chipsWrap = document.getElementById('aiChips');
+    const form = document.getElementById('aiForm');
+    const input = document.getElementById('aiInput');
+    const sendBtn = document.getElementById('aiSendBtn');
+    if (!toggle || !panel || !msgs || !form || !input) return;
+
+    let history = [];
+    let greeted = false;
+    let busy = false;
+
+    function addBubble(role, text, i18nKey) {
+      const div = document.createElement('div');
+      div.className = 'ai-msg ' + (role === 'user' ? 'user' : 'bot');
+      if (i18nKey) {
+        div.setAttribute('data-i18n', i18nKey); // follows future language switches too
+        div.textContent = I18N[currentLang][i18nKey];
+      } else {
+        div.textContent = text;
+      }
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+      return div;
+    }
+
+    function showTyping() {
+      const div = document.createElement('div');
+      div.className = 'ai-msg bot ai-typing';
+      div.innerHTML = '<span></span><span></span><span></span>';
+      msgs.appendChild(div);
+      msgs.scrollTop = msgs.scrollHeight;
+      return div;
+    }
+
+    function openPanel() {
+      panel.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      if (!greeted) { greeted = true; addBubble('bot', '', 'aiGreeting'); }
+      input.focus();
+    }
+    function closePanel() {
+      panel.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    }
+
+    async function send(text) {
+      text = (text || '').trim();
+      if (!text || busy) return;
+      busy = true;
+      if (sendBtn) sendBtn.disabled = true;
+      if (chipsWrap) chipsWrap.hidden = true;
+      addBubble('user', text);
+      history.push({ role: 'user', content: text });
+      history = history.slice(-AI_MAX_HISTORY);
+      const typing = showTyping();
+      try {
+        const res = await fetch(AI_PROXY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'gpt-4o-mini',
+            messages: [{ role: 'system', content: AI_SYSTEM_PROMPT }].concat(history),
+            max_tokens: 350
+          })
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        let reply = '';
+        if (data && data.choices && data.choices[0]) {
+          const m = data.choices[0].message;
+          reply = (m && m.content) || data.choices[0].text || '';
+        }
+        if (!reply && data && typeof data.content === 'string') reply = data.content;
+        if (!reply && data && typeof data.reply === 'string') reply = data.reply;
+        if (!reply && data && typeof data.message === 'string') reply = data.message;
+        reply = (reply || '').trim();
+        if (!reply) throw new Error('empty reply');
+        typing.remove();
+        addBubble('bot', reply);
+        history.push({ role: 'assistant', content: reply });
+        history = history.slice(-AI_MAX_HISTORY);
+      } catch (err) {
+        typing.remove();
+        addBubble('bot', '', 'aiError');
+      } finally {
+        busy = false;
+        if (sendBtn) sendBtn.disabled = false;
+      }
+    }
+
+    toggle.addEventListener('click', () => (panel.hidden ? openPanel() : closePanel()));
+    if (closeBtn) closeBtn.addEventListener('click', closePanel);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) closePanel(); });
+    if (chipsWrap) chipsWrap.querySelectorAll('.ai-chip').forEach(chip => {
+      chip.addEventListener('click', () => send(chip.textContent));
+    });
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const v = input.value;
+      input.value = '';
+      send(v);
+    });
+
+    // Dev/verify affordance: ?aichat=open auto-opens; ?aichat=demo also sends chip 1 for real.
+    const q = location.search;
+    if (q.indexOf('aichat=open') !== -1 || q.indexOf('aichat=demo') !== -1) {
+      openPanel();
+      if (q.indexOf('aichat=demo') !== -1) {
+        setTimeout(() => send(I18N[currentLang].aiChip1), 600);
+      }
+    }
+  });
+})();
+/* /AI-AVATAR */
