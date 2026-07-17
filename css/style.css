@@ -156,7 +156,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .proof { padding: 22px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background: var(--bg-secondary); }
 .proof-row { display: flex; align-items: center; justify-content: space-between; gap: 26px; flex-wrap: wrap; }
 .proof-rating { display: flex; align-items: center; gap: 12px; }
-.stars { color: #FFB400; font-size: 22px; letter-spacing: 2px; }
+.store-badge { display: flex; align-items: center; justify-content: center; height: 30px; color: var(--text-primary); }
+.store-badge svg { display: block; }
 .proof-sub { display: flex; flex-direction: column; line-height: 1.25; font-size: 13px; color: var(--text-secondary); }
 .proof-sub strong { color: var(--text-primary); font-size: 15px; }
 .proof-stats { display: flex; gap: 34px; flex-wrap: wrap; }
